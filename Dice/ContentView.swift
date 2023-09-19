@@ -25,6 +25,15 @@ struct ContentView: View {
             print("ボタンが押されたよ")
         } label: {
             Text("サイコロを振る")
+                //modifire
+                //内側に余白
+                .padding()
+                //背景色を変更
+                .background(Color.orange)
+                //文字色を変更
+                .foregroundColor(.black)
+                //ボタンの角に丸みをつける
+                .cornerRadius(10)
         }
     }
 }
