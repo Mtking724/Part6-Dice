@@ -10,34 +10,36 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            Spacer()
             Image(systemName: "die.face.1")
-                //modifire
-                //画像の大きさを変更
+            //modifire
+            //画像の大きさを変更
                 .resizable()
-                //画像の縦横の比率を固定する
+            //画像の縦横の比率を固定する
                 .scaledToFit()
-                //オブジェクトの大きさを変更
+            //オブジェクトの大きさを変更
                 .frame(width: UIScreen.main.bounds.width/2)
-                //内側に余白をつける
+            //内側に余白をつける
                 .padding()
-        }
-        Button {
-            print("ボタンが押されたよ")
-        } label: {
-            Text("サイコロを振る")
+            Spacer()
+            Button {
+                print("ボタンが押されたよ")
+            } label: {
+                Text("サイコロを振る")
                 //modifire
                 //内側に余白
-                .padding()
+                    .padding()
                 //背景色を変更
-                .background(Color.orange)
+                    .background(Color.orange)
                 //文字色を変更
-                .foregroundColor(.black)
+                    .foregroundColor(.black)
                 //ボタンの角に丸みをつける
-                .cornerRadius(10)
+                    .cornerRadius(10)
+            }
+            Spacer()
         }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
