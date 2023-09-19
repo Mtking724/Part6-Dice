@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var randomNumber = 1
+    @State var timer: Timer?
     
     var body: some View {
         VStack {
@@ -26,7 +27,14 @@ struct ContentView: View {
             Spacer()
             Button {
                 print("ボタンが押されたよ")
-                randomNumber = Int.random(in: 1...6)
+                //0.1秒ごとに出目を変更
+                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in randomNumber = Int.random(in: 1...6)}
+                //0.5秒遅らせて処理を行う
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    //timerをストップ
+                    timer?.invalidate()
+                    timer = nil
+                }
             } label: {
                 Text("サイコロを振る")
                 //modifire
