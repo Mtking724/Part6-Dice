@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var randomNumber = 1
+    
     var body: some View {
         VStack {
             Spacer()
-            Image(systemName: "die.face.1")
+            Image(systemName: "die.face.\(randomNumber)")
             //modifire
             //画像の大きさを変更
                 .resizable()
@@ -24,6 +26,7 @@ struct ContentView: View {
             Spacer()
             Button {
                 print("ボタンが押されたよ")
+                randomNumber = Int.random(in: 1...6)
             } label: {
                 Text("サイコロを振る")
                 //modifire
